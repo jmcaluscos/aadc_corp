@@ -76,6 +76,7 @@
             </div>
             <div class="tools"><input id="q" placeholder="Search project or location…" aria-label="Search projects">
             </div>
+            
             <div class="tbwrap">
                 <table>
                     <thead>
