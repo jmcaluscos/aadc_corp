@@ -8,7 +8,8 @@
     <link rel="icon" href="logo.png">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap">
-    <link rel="stylesheet" href="style.css">
+    {{-- <link rel="stylesheet" href="style.css"> --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/data.js', 'resources/js/main.js'])
 </head>
 
 <body>
@@ -97,8 +98,8 @@
             <div class="copy">© 2026 A&amp;DC Construction Corporation. All rights reserved.</div>
         </div>
     </footer>
-    <script src="data.js"></script>
-    <script src="main.js"></script>
+    {{-- <script src="data.js"></script>
+    <script src="main.js"></script> --}}
 </body>
 
 </html>
