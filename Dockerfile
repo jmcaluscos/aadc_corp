@@ -24,7 +24,6 @@ COPY . /var/www/html
 
 # Configure Apache document root to point to Laravel's public folder
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
-DocumentRoot ${APACHE_DOCUMENT_ROOT}
 RUN sed -ri -s 's#/var/www/html#/var/www/html/public#g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -s 's#/var/www/#/var/www/html/public#g' /etc/apache2/apache2.conf
 
