@@ -99,7 +99,7 @@
                 <div>
                     <h4>A&amp;DC Construction Corporation</h4>
                     <p>Design and Engineering Construction. PCAB License No. 56496. SEC Reg. 2033010080440-31.</p>
-                </div>
+                </div> 
                 <div>
                     <h4>Explore</h4>
                     <a href="{{ Route::has('about') ? route('about') : "#" }}">About Us</a>
@@ -132,6 +132,7 @@
             <div class="copy">© 2026 A&amp;DC Construction Corporation. All rights reserved.</div>
         </div>
     </footer>
+    
     {{-- <script src="data.js"></script>
     <script src="main.js"></script> --}}
 </body>
