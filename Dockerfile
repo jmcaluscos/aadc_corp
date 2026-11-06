@@ -29,8 +29,9 @@ ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -s 's#/var/www/html#/var/www/html/public#g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -s 's#/var/www/#/var/www/html/public#g' /etc/apache2/apache2.conf
 
-# Enable Apache Rewrite Module
+# Enable Apache Rewrite Module and allow .htaccess overrides
 RUN a2enmod rewrite
+RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
