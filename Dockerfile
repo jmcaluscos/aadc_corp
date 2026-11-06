@@ -1,6 +1,6 @@
 FROM php:8.3-apache
 
-# Install system dependencies and PHP extensions
+# Install system dependencies, PHP extensions, and Node.js
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip
+    unzip \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -30,8 +32,11 @@ RUN sed -ri -s 's#/var/www/#/var/www/html/public#g' /etc/apache2/apache2.conf
 # Enable Apache Rewrite Module
 RUN a2enmod rewrite
 
-# Install project dependencies
+# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
+
+# Install Node dependencies and build frontend assets (Vite)
+RUN npm install && npm run build
 
 # Set permissions for storage and bootstrap cache
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
