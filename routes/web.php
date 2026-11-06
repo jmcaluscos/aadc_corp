@@ -17,3 +17,15 @@ Route::get('/services', function () {
 Route::get('/projects', function () {
     return view('projects');
 })->name('projects');
+
+Route::get('/partners', function () {
+    return view('partners');
+})->name('partners');
+
+Route::get('/team', function () {
+    return view('team');
+})->name('team');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
